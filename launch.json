@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Trigger Embedder",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/embed_triggers.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
