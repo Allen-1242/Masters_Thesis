@@ -1,4 +1,48 @@
+<<<<<<< HEAD
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+=======
+# ===== Python =====
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.ipynb_checkpoints/
+
+# Virtual envs and dotenvs
+.env
+.env.*
+
+# FAISS & embeddings
+*.faiss
+*.jsonl
+calfresh_metadata.json
+calfresh_triggers.faiss
+
+# Logs & crash dumps
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Output data
+outputs/
+data/
+
+# ===== R & RStudio =====
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# ===== VS Code =====
+.vscode/
+.code-workspace
+
+# MacOS / Linux / system files
+.DS_Store
+Thumbs.db
+>>>>>>> 84a3b9b (RAG update)
