@@ -2,6 +2,7 @@ import json
 import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
+from sklearn.preprocessing import normalize
 
 # === Load the JSONL ===
 def load_jsonl(path):
@@ -29,12 +30,17 @@ documents = list(load_jsonl("recourse_dataset.jsonl"))
 texts = [doc["trigger"] for doc in documents]
 
 # === Generate embeddings ===
-model = SentenceTransformer("all-MiniLM-L6-v2")
+
+model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
 embeddings = model.encode(texts, convert_to_numpy=True)
+
+#Normalize the embeddings 
+embeddings = normalize(embeddings, axis=1)
+
 
 # === Build FAISS index ===
 dimension = embeddings.shape[1]
-index = faiss.IndexFlatL2(dimension)
+index = faiss.IndexFlatIP(dimension)
 index.add(embeddings)
 
 # === Create metadata mapping ===
